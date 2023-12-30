@@ -19,9 +19,9 @@ const Header = () => {
         <FaSearch className='text-slate-600'/>
     </form>
     <ul className='flex gap-4'>
-        <Link to='/'><li className='hidden sm:inline hover:underline'>Home</li></Link>
-        <Link to='/about'><li className='hidden sm:inline hover:underline'>About</li></Link>
-        <Link to='/sign-in'><li className='hover:underline'>Sign In</li></Link>
+        <Link to='/'><li className='hidden sm:inline hover:underline text-slate-300'>Home</li></Link>
+        <Link to='/about'><li className='hidden sm:inline hover:underline text-slate-300'>About</li></Link>
+        <Link to='/sign-in'><li className='hover:underline text-slate-300'>Sign In</li></Link>
     </ul>
 </div>
 </header>

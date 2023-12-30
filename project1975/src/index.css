@@ -14,7 +14,11 @@
   :root{
     --color-088178-el-col:#02244a;
     --color-0881788-bg-col:rgb(2,36,74,0.90);
+    --color-b7aaaa-bg:#ced0d1;
     --color-b6aaaa-bg:#979b9c;
+  }
+  body{
+    background-color: var(--color-b7aaaa-bg);
   }
   .gap-10 {
     gap: 10px;
@@ -30,12 +34,12 @@
     color: white;
     font-size: 14px;
     padding: 13px 33px;
-    border-radius:25px ;
-    -webkit-border-radius:25px ;
-    -moz-border-radius:25px ;
-    -ms-border-radius:25px ;
-    -o-border-radius:25px ;
-  }
+    border-radius:20px ;
+    -webkit-border-radius:20px ;
+    -moz-border-radius:20px ;
+    -ms-border-radius:20px ;
+    -o-border-radius:20px ;
+}
   .button:hover{
     background-color: var(--color-b6aaaa-bg);
     color: black;
