@@ -21,7 +21,7 @@
     --color-body-bg:#d1e8e2;
   }
   body{
-    background-color: var(--color-body-bg);
+    background-color: wheat;
   }
   .gap-10 {
     gap: 10px;
@@ -44,7 +44,7 @@
     -o-border-radius:20px ;
 }
   .button:hover{
-    background-color: var(--color-b7aaaa-bg);
+    background-color: var(--color-b6aaaa-bg);
     color: black;
   }
 /* Header part */
