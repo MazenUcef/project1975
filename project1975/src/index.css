@@ -6,19 +6,22 @@
     padding: 0;
     box-sizing: border-box;
   }
-
+.title{
+  color: var(--color-b7aaaa-bg);
+}
   a{
     text-decoration: none;
     display: inline-block;
   }
   :root{
-    --color-088178-el-col:#02244a;
-    --color-0881788-bg-col:rgb(2,36,74,0.90);
-    --color-b7aaaa-bg:#ced0d1;
+    --color-088178-el-col:#116466;
+    --color-navbar-bg-col:rgb(17,100,102,0.90);
+    --color-b7aaaa-bg:#d9b080;
     --color-b6aaaa-bg:#979b9c;
+    --color-body-bg:#d1e8e2;
   }
   body{
-    background-color: var(--color-b7aaaa-bg);
+    background-color: var(--color-body-bg);
   }
   .gap-10 {
     gap: 10px;
@@ -41,20 +44,24 @@
     -o-border-radius:20px ;
 }
   .button:hover{
-    background-color: var(--color-b6aaaa-bg);
+    background-color: var(--color-b7aaaa-bg);
     color: black;
   }
 /* Header part */
 
 .title1{
-    color: black;
+    color: #2c3531;
 }
 .title2{
-    color: var(--color-b6aaaa-bg);
+    color: var(--color-b7aaaa-bg);
 }
 header{
-    background-color: rgb(2,36,74,0.90);
+    background-color: var(--color-navbar-bg-col);
 }
 header ul li{
     font-weight: 600 !important;
+
+}
+.signin form button{
+  color: var(--color-b7aaaa-bg);
 }
