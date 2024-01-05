@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { signInStart } from '../redux/user/userSlice'
 import { signInSuccess } from '../redux/user/userSlice'
 import { signInFailure } from '../redux/user/userSlice'
+import OAuth from '../components/OAuth'
 
 
 
@@ -51,7 +52,8 @@ dispatch(signInFailure(error.message))
       <input type='email' placeholder='email..' className='border p-3 rounded-lg' id='email' onChange={handleChange}/>
       <input type='password' placeholder='password..' className='border p-3 rounded-lg' id='password' onChange={handleChange}/>
       <button disabled={loading} className='button font-bold title uppercase'>{loading ? 'loading...':'Sign In'}</button>
-    </form>
+      <OAuth/>
+      </form>
     <div className='flex gap-2 mt-5'>
       <p>Dont Have an account?</p>
       <Link to='/sign-up' >

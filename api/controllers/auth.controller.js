@@ -32,3 +32,29 @@ res
 }
 };
 
+
+export const google = async (req,res,next) =>{
+try {
+    const user = await User.findOne({email : req.body.email})
+    if(user){
+//   if the user exist we want to register the user
+
+const {password: pass,...rest} = user._doc;
+res
+.status(200)
+.json(rest)
+    }else{
+// if not we want to create a user
+const generatedPassword = Math.random().toString(36).slice(-8) + Math.random().toString(36).slice(-8);
+const hashedPass = bcryptjs.hashSync(generatedPassword , 10);
+const newUser = new User({username : req.body.name.split("").join("").toLowerCase() + Math.random().toString(36).slice(-4) , email: req.body.email , password : hashedPass , avatar: req.body.photo});
+await newUser.save();
+
+const { password : pass , ...rest } = newUser._doc;
+res.status(200).json(rest)
+
+}
+} catch (error) {
+    next(error)
+}
+}
