@@ -65,3 +65,6 @@ header ul li{
 .signin form button{
   color: var(--color-b7aaaa-bg);
 }
+.profile h1{
+  color: var(--color-navbar-bg-col);
+}
