@@ -15,6 +15,7 @@ const Profile = () => {
   const [filePerc , setFilePerc] = useState(0)
   const [filUplError , setFileUplError] = useState(false)
   const [formData ,setFormData] = useState({})
+  console.log(formData);
   const [updSuccess , setUpdSuccess] = useState(false)
   const dispatch = useDispatch() 
 
@@ -47,10 +48,10 @@ setFormData({...formData , avatar:downloadURL})
   )
 }
 const  handleChange = (e) =>{
-setFormData({...formData , [e.target.id]: e.target.value})
+setFormData({...formData , [e.target.id]: e.target.value});
 }
 const handleSubmit = async (e)=>{
-  window.preventDefault()
+  // window.preventDefault()
   e.preventDefault();
   try {
     dispatch(updateUserStart());
@@ -78,7 +79,7 @@ const handleSubmit = async (e)=>{
   <h1 className='text-3xl font-semibold text-center my-7'>{currentUser.username}</h1>
   <form onSubmit={handleSubmit} className='flex flex-col'>
     <input onChange={(e)=>setFile(e.target.files[0])} type='file' ref={fileRef} hidden accept='image/*'/>
-    <img onClick={()=>fileRef.current.click()} defaultValue={currentUser.avatar} className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2' 
+    <img onClick={()=>fileRef.current.click()} className='rounded-full h-24 w-24 object-cover cursor-pointer self-center mt-2' 
     src={formData.avatar || currentUser.avatar} alt=''/>
     
     <p className='text-sm self-center mt-3'>{
