@@ -10,7 +10,7 @@ export const signup = async (req , res ,next)=>{
     const newUser = new User({username , email ,password:hashedPass});
     try {
         await newUser.save();
-        res.status(201).json('User created successfully!')
+        res.status(201).json('User created successfully!') 
     } catch (error) {
         next(error)
     }
@@ -59,6 +59,16 @@ res
 .json(rest)
 
 }
+} catch (error) {
+    next(error)
+}
+}
+
+
+export const signOut = (req, res , next) =>{
+try {
+    res.clearCookie('access_token')
+    res.status(200).json('User has been logged out !')
 } catch (error) {
     next(error)
 }

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { useRef } from 'react'
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage'
 import { app } from '../fireBase'
-import {updateUserStart , updateUserSuccess , updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess} from '../redux/user/userSlice.js'
+import {updateUserStart , updateUserSuccess , updateUserFailure, deleteUserFailure, deleteUserStart, deleteUserSuccess, signOutUserStart, signOutUserSuccess, signInFailure, signOutUserFailure} from '../redux/user/userSlice.js'
 import { useDispatch } from 'react-redux'
 
 
@@ -15,7 +15,7 @@ const Profile = () => {
   const [filePerc , setFilePerc] = useState(0)
   const [filUplError , setFileUplError] = useState(false)
   const [formData ,setFormData] = useState({})
-  console.log(formData);
+  // console.log(formData);
   const [updSuccess , setUpdSuccess] = useState(false)
   const dispatch = useDispatch() 
 
@@ -47,9 +47,38 @@ setFormData({...formData , avatar:downloadURL})
     }
   )
 }
+
+
+
+
+// =========================================
+
+
+
+
 const  handleChange = (e) =>{
 setFormData({...formData , [e.target.id]: e.target.value});
 }
+
+
+
+
+
+
+
+
+
+
+
+// ================================================================
+
+
+
+
+
+
+
+
 const handleSubmit = async (e)=>{
   // window.preventDefault()
   e.preventDefault();
@@ -73,6 +102,18 @@ const handleSubmit = async (e)=>{
     dispatch(updateUserFailure(error.message))
   }
 }
+
+
+
+
+
+
+// ==============================================================
+
+
+
+
+
 const handleDeleteUser = async ()=>{
   try {
     dispatch(deleteUserStart())
@@ -88,6 +129,28 @@ const handleDeleteUser = async ()=>{
   } catch (error) {
     dispatch(deleteUserFailure(error.message))
   }
+}
+
+
+
+
+// =========================================================
+
+
+
+const handleSignOut = async () =>{
+try {
+  dispatch(signOutUserStart());
+  const res = await fetch(`/api/auth/signout`);
+  const data = await res.json();
+  if(data.success === false){
+    dispatch(signOutUserFailure(data.message))
+    return;
+  }
+  dispatch(signOutUserSuccess(data))
+} catch (error) {
+  dispatch(signOutUserFailure(error.message))
+}
 }
   return (
 <>
@@ -115,7 +178,7 @@ const handleDeleteUser = async ()=>{
     </form>
     <div className='flex justify-between mt-5'>
     <span onClick={handleDeleteUser} className='text-slate-700 cursor-pointer hover:text-red-700'>Delete Account</span>
-    <span className='text-slate-700 cursor-pointer hover:text-red-700'>Sign out</span>
+    <span onClick={handleSignOut} className='text-slate-700 cursor-pointer hover:text-red-700'>Sign out</span>
     </div>
     <p className='text-red-700 mt-5'>{error ? error : ''}</p>
     <p className='text-green-700 mt-5'>{updSuccess ? 'User is Updated Successfully' : ''}</p>
