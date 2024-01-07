@@ -8,13 +8,18 @@ import cookieParser from 'cookie-parser';
 
 // server listen
 const app = express();
+
+
 app.use(express.json())
+
 app.use(cookieParser())
+
 app.listen(5000 , ()=>{
     console.log('Server is running in port 5000 ');
 })
 
 // data base connection
+
 mongoose
 .connect("mongodb+srv://mazenucef:mazenucef@project-estate.usg1dux.mongodb.net/project-estate?retryWrites=true&w=majority")
 .then(()=>{
