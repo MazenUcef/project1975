@@ -68,3 +68,6 @@ header ul li{
 .profile h1{
   color: var(--color-navbar-bg-col);
 }
+.listing-section h1{
+  color: var(--color-navbar-bg-col);
+}
